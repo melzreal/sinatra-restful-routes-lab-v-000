@@ -6,6 +6,11 @@ class ApplicationController < Sinatra::Base
 
   # code actions here!
 
+  get '/recipes' do
+    @recipe = Recipe.all
+    erb :show
+  end
+
   get '/recipes/new' do
     erb :newrecipe
   end
@@ -20,11 +25,6 @@ class ApplicationController < Sinatra::Base
     else
       redirect "/error"
     end
-  end
-
-  get '/recipes' do
-    @recipe = Recipe.all
-    erb :show
   end
 
 
